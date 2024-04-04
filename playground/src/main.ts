@@ -1,3 +1,10 @@
-import content from "./content";
+import content from "./content.ts";
+import { mountChild } from "./hot-child.ts";
 
-document.querySelector("#app")!.innerHTML = content;
+function mount() {
+  const app = document.querySelector("#app")!;
+  app.innerHTML = content;
+  app.append(mountChild());
+}
+
+mount();
